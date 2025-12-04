@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#2E508F</color>
+    <color name="colorAccent">#F5881C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_grey">#FAFAFA</color>
+    <color name="divider_grey">#E0E0E0</color>
+    <color name="colorPrimaryDark">#0055AA</color>
+    <color name="tixpay_green">#039688</color>
+    <color name="action_blue">#03A9F4</color>
+    <color name="visual_placeholder_color">#CCCCCC</color>
+    <color name="dot_purple">#9C27B0</color>
+    <color name="colorPrimary2">#0066CC</color>
+    <color name="colorPrimaryDark2">#004488</color>
 </resources>
