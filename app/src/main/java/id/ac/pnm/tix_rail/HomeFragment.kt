@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     private fun configureTransportIcons() {
         binding.iconAntarKota.textIconLabel.text = "Antar Kota"
-        binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarkota_logo)
+        binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarKota_logo)
         binding.iconAntarKota.root.setOnClickListener {
             val mainActivity = activity as? MainActivity
             mainActivity?.navigateToFragment(AntarKotaFragment(), "AntarKota")
