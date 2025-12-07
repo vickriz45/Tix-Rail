@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            // R.id.fragment_container adalah ID dari FrameLayout di activity_main.xml
             replace(R.id.fragment_container, fragment)
             commit()
         }
