@@ -1,20 +1,49 @@
 package id.ac.pnm.tix_rail
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import id.ac.pnm.tix_rail.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        configureBottomNav()
+
+        if (savedInstanceState == null) {
+            setCurrentFragment(HomeFragment())
+            binding.bottomNavigationBar.selectedItemId = R.id.menu_beranda
+        }
+    }
+    private fun setCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            commit()
+        }
+    }
+    private fun configureBottomNav() {
+        binding.bottomNavigationBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_beranda -> setCurrentFragment(HomeFragment())
+                R.id.menu_tiket_saya -> setCurrentFragment(TiketSayaFragment())
+                R.id.menu_promo -> setCurrentFragment(PromoFragment())
+                R.id.menu_profil -> setCurrentFragment(ProfileFragment())
+                else -> false
+            }
+            true
+        }
+    }
+    fun navigateToFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment, tag)
+            addToBackStack(tag)
+            commit()
         }
     }
 }
