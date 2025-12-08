@@ -8,11 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnm.tix_rail.databinding.FragmentHomeBinding
-// Asumsi BannerAdapter, PromoAdapter, dan AntarKotaSearchFragment sudah didefinisikan
 
 class HomeFragment : Fragment() {
 
-    // Variabel binding yang aman (safe)
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -55,7 +53,6 @@ class HomeFragment : Fragment() {
         binding.textSaldoValue.text = "Rp 15.000"
 
         binding.actionTopup.setOnClickListener {
-            // Menggunakan requireContext() untuk Toast di Fragment
             Toast.makeText(requireContext(), "Menuju halaman Top Up", Toast.LENGTH_SHORT).show()
         }
         binding.actionHistory.setOnClickListener {
