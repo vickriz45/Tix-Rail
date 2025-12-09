@@ -10,11 +10,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.pnm.tix_rail.databinding.FragmentJadwalAntarkotaBinding
+import id.ac.pnm.tix_rail.databinding.FragmentJadwalWhooshBinding
 
-class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
+class JadwalWhooshFragment : Fragment(), JadwalAdapter.OnItemClickListener {
 
-    private var _binding: FragmentJadwalAntarkotaBinding? = null
+    private var _binding: FragmentJadwalWhooshBinding? = null
     private val binding get() = _binding!!
     private var stasiunAsal: String? = null
     private var stasiunTujuan: String? = null
@@ -26,8 +26,8 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         private const val ARG_ASAL = "stasiun_asal"
         private const val ARG_TUJUAN = "stasiun_tujuan"
 
-        fun newInstance(asal: String, tujuan: String): JadwalLokalFragment {
-            val fragment = JadwalLokalFragment()
+        fun newInstance(asal: String, tujuan: String): JadwalWhooshFragment {
+            val fragment = JadwalWhooshFragment()
             val args = Bundle()
             args.putString(ARG_ASAL, asal)
             args.putString(ARG_TUJUAN, tujuan)
@@ -48,7 +48,7 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentJadwalAntarkotaBinding.inflate(inflater, container, false)
+        _binding = FragmentJadwalWhooshBinding.inflate(inflater, container, false)
 
         setupToolbar()
         displayRouteHeader()
@@ -115,23 +115,12 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         val tujuanSingkat = stasiunTujuan ?: ""
         val finalJadwalList = if (date == "Sen, 9 Des") {
             listOf(
-                JadwalItem("Muara Satu",
-                    "108",
-                    "25000",
+                JadwalItem("Whoosh",
+                    "998",
+                    "1200000",
                     "08:00",
-                    "10:00",
-                    "02j 00m",
-                    asalSingkat,
-                    tujuanSingkat,
-                    "Sen, 9 Des",
-                    "Sen, 9 Des"
-                ),
-                JadwalItem("Pariaman",
-                    "805",
-                    "25000",
-                    "10:00",
-                    "03:00",
-                    "03j 00m",
+                    "11:00",
+                    "08j 00m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sen, 9 Des",
@@ -140,23 +129,12 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
             )
         }else if (date == "Sel, 10 Des") {
             listOf(
-                JadwalItem("Lembah Anai",
-                    "067",
-                    "25000",
-                    "07:00",
-                    "11:30",
-                    "04j 30m",
-                    asalSingkat,
-                    tujuanSingkat,
-                    "Sel, 10 Des",
-                    "Sel, 10 Des"
-                ),
-                JadwalItem("Sri Lelawangsa",
-                    "303",
-                    "20000",
-                    "14:00",
-                    "17:30",
-                    "03j 30m",
+                JadwalItem("Whoosh",
+                    "998",
+                    "1200000",
+                    "08:00",
+                    "11:00",
+                    "08j 00m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sel, 10 Des",
@@ -165,40 +143,40 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
             )
         } else if(date == "Rab, 11 Des") {
             listOf(
-                JadwalItem("Muara Satu",
-                    "108",
-                    "25000",
+                JadwalItem("Whoosh",
+                    "998",
+                    "1200000",
                     "08:00",
-                    "10:00",
-                    "02j 00m",
+                    "11:00",
+                    "08j 00m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Sen, 11 Des",
-                    "Sen, 11 Des"
+                    "Rab, 11 Des",
+                    "Rab, 11 Des"
                 ),
             )
         } else if (date == "Kam, 12 Des"){
             listOf(
-                JadwalItem("Sri Lelawangsa",
-                    "303",
-                    "20000",
-                    "14:00",
-                    "17:30",
-                    "03j 30m",
+                JadwalItem("Whoosh",
+                    "998",
+                    "1200000",
+                    "08:00",
+                    "11:00",
+                    "08j 00m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Sel, 12 Des",
-                    "Sel, 12 Des"
+                    "Kam, 12 Des",
+                    "Kam, 12 Des"
                 ),
             )
         } else {
             listOf(
-                JadwalItem("Kereta Senja",
-                    "721",
-                    "30000",
-                    "16:00",
-                    "18:00",
-                    "02j 00m",
+                JadwalItem("Whoosh",
+                    "998",
+                    "1200000",
+                    "08:00",
+                    "11:00",
+                    "08j 00m",
                     asalSingkat,
                     tujuanSingkat,
                     "Jum, 13 Des",

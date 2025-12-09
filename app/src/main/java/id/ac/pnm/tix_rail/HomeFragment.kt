@@ -86,32 +86,35 @@ class HomeFragment : Fragment() {
         binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarkota_logo)
         binding.iconAntarKota.root.setOnClickListener {
             val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(PemesananTiketAntarKota(), "AntarKota")
+            mainActivity?.navigateToFragment(PemesananTiketAntarKotaFragment(), "AntarKota")
         }
 
         binding.iconLokal.textIconLabel.text = "Lokal"
         binding.iconLokal.imageIcon.setImageResource(R.drawable.lokal_logo)
         binding.iconLokal.root.setOnClickListener {
             val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(PemesananTiketLokal(), "Lokal")
+            mainActivity?.navigateToFragment(PemesananTiketLokalFragment(), "Lokal")
         }
 
         binding.iconKomuter.textIconLabel.text = "Komuter"
         binding.iconKomuter.imageIcon.setImageResource(R.drawable.komuter_logo)
         binding.iconKomuter.root.setOnClickListener {
-            //code ke activity
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketKomuterFragment(), "Lokal")
         }
 
         binding.iconMrt.textIconLabel.text = "MRT"
         binding.iconMrt.imageIcon.setImageResource(R.drawable.mrt_logo)
         binding.iconMrt.root.setOnClickListener {
-            Toast.makeText(requireContext(), "MRT diklik", Toast.LENGTH_SHORT).show()
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketMRTFragment(), "Lokal")
         }
 
         binding.iconWhoosh.textIconLabel.text = "Whoosh"
         binding.iconWhoosh.imageIcon.setImageResource(R.drawable.whoosh_logo)
         binding.iconWhoosh.root.setOnClickListener {
-            Toast.makeText(requireContext(), "Whoosh diklik", Toast.LENGTH_SHORT).show()
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketWhooshFragment(), "Komuter")
         }
     }
 

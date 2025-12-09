@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import id.ac.pnm.tix_rail.databinding.FragmentPemesananTiketAntarKotaBinding
+import id.ac.pnm.tix_rail.databinding.FragmentPemesananTiketWhooshBinding
 
-class PemesananTiketAntarKota : Fragment() {
+class PemesananTiketWhooshFragment : Fragment() {
 
-    private var _binding: FragmentPemesananTiketAntarKotaBinding? = null
+    private var _binding: FragmentPemesananTiketWhooshBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPemesananTiketAntarKotaBinding.inflate(inflater, container, false)
+        _binding = FragmentPemesananTiketWhooshBinding.inflate(inflater, container, false)
         setupToolbar()
         setupUI()
 
@@ -36,7 +36,7 @@ class PemesananTiketAntarKota : Fragment() {
             val tujuan = binding.textStasiunTujuan.text.toString().trim()
 
             if (asal.isNotEmpty() && tujuan.isNotEmpty()) {
-                val jadwalFragment = JadwalAntarkotaFragment.newInstance(asal, tujuan)
+                val jadwalFragment = JadwalWhooshFragment.newInstance(asal, tujuan)
                 val mainActivity = activity as? MainActivity
                 mainActivity?.navigateToFragment(jadwalFragment, "Cari Jadwal")
             } else {

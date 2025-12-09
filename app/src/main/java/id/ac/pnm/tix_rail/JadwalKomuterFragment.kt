@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnm.tix_rail.databinding.FragmentJadwalAntarkotaBinding
 
-class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
+class JadwalKomuterFragment : Fragment(), JadwalAdapter.OnItemClickListener {
 
     private var _binding: FragmentJadwalAntarkotaBinding? = null
     private val binding get() = _binding!!
@@ -26,8 +26,8 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         private const val ARG_ASAL = "stasiun_asal"
         private const val ARG_TUJUAN = "stasiun_tujuan"
 
-        fun newInstance(asal: String, tujuan: String): JadwalLokalFragment {
-            val fragment = JadwalLokalFragment()
+        fun newInstance(asal: String, tujuan: String): JadwalKomuterFragment {
+            val fragment = JadwalKomuterFragment()
             val args = Bundle()
             args.putString(ARG_ASAL, asal)
             args.putString(ARG_TUJUAN, tujuan)
@@ -115,23 +115,34 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         val tujuanSingkat = stasiunTujuan ?: ""
         val finalJadwalList = if (date == "Sen, 9 Des") {
             listOf(
-                JadwalItem("Muara Satu",
-                    "108",
-                    "25000",
-                    "08:00",
-                    "10:00",
-                    "02j 00m",
+                JadwalItem("CL Rangkasbitung",
+                    "101",
+                    "53000",
+                    "07:00",
+                    "12:00",
+                    "05j 00m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sen, 9 Des",
                     "Sen, 9 Des"
                 ),
-                JadwalItem("Pariaman",
-                    "805",
-                    "25000",
+                JadwalItem("CL Tangerang",
+                    "941",
+                    "45000",
                     "10:00",
-                    "03:00",
-                    "03j 00m",
+                    "11:30",
+                    "01j 30m",
+                    asalSingkat,
+                    tujuanSingkat,
+                    "Sen, 9 Des",
+                    "Sen, 9 Des"
+                ),
+                JadwalItem("CL Bogor",
+                    "752",
+                    "40000",
+                    "08:00",
+                    "10:00",
+                    "02j 00m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sen, 9 Des",
@@ -140,37 +151,59 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
             )
         }else if (date == "Sel, 10 Des") {
             listOf(
-                JadwalItem("Lembah Anai",
-                    "067",
-                    "25000",
-                    "07:00",
-                    "11:30",
-                    "04j 30m",
+                JadwalItem("CL Bogor",
+                    "752",
+                    "40000",
+                    "08:00",
+                    "10:00",
+                    "02j 00m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Sel, 10 Des",
-                    "Sel, 10 Des"
+                    "Sen, 10 Des",
+                    "Sen, 10 Des"
                 ),
-                JadwalItem("Sri Lelawangsa",
-                    "303",
-                    "20000",
-                    "14:00",
-                    "17:30",
-                    "03j 30m",
+                JadwalItem("CL Rangkasbitung",
+                    "101",
+                    "53000",
+                    "07:00",
+                    "12:00",
+                    "05j 00m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Sel, 10 Des",
-                    "Sel, 10 Des"
+                    "Sen, 10 Des",
+                    "Sen, 10 Des"
+                ),
+                JadwalItem("CL Tangerang",
+                    "941",
+                    "45000",
+                    "10:00",
+                    "11:30",
+                    "01j 30m",
+                    asalSingkat,
+                    tujuanSingkat,
+                    "Sen, 10 Des",
+                    "Sen, 10 Des"
                 ),
             )
         } else if(date == "Rab, 11 Des") {
             listOf(
-                JadwalItem("Muara Satu",
-                    "108",
-                    "25000",
-                    "08:00",
+                JadwalItem("CL Rangkasbitung",
+                    "101",
+                    "53000",
+                    "07:00",
+                    "12:00",
+                    "05j 00m",
+                    asalSingkat,
+                    tujuanSingkat,
+                    "Sen, 11 Des",
+                    "Sen, 11 Des"
+                ),
+                JadwalItem("CL Tangerang",
+                    "941",
+                    "45000",
                     "10:00",
-                    "02j 00m",
+                    "11:30",
+                    "01j 30m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sen, 11 Des",
@@ -179,30 +212,30 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
             )
         } else if (date == "Kam, 12 Des"){
             listOf(
-                JadwalItem("Sri Lelawangsa",
-                    "303",
-                    "20000",
-                    "14:00",
-                    "17:30",
-                    "03j 30m",
+                JadwalItem("CL Tangerang",
+                    "941",
+                    "45000",
+                    "10:00",
+                    "11:30",
+                    "01j 30m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Sel, 12 Des",
-                    "Sel, 12 Des"
+                    "Sen, 12 Des",
+                    "Sen, 12 Des"
                 ),
             )
         } else {
             listOf(
-                JadwalItem("Kereta Senja",
-                    "721",
-                    "30000",
-                    "16:00",
-                    "18:00",
-                    "02j 00m",
+                JadwalItem("CL Rangkasbitung",
+                    "101",
+                    "53000",
+                    "07:00",
+                    "12:00",
+                    "05j 00m",
                     asalSingkat,
                     tujuanSingkat,
-                    "Jum, 13 Des",
-                    "Jum, 13 Des"
+                    "Sen, 13 Des",
+                    "Sen, 13 Des"
                 )
             )
         }
