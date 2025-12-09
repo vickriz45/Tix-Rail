@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -87,13 +86,15 @@ class HomeFragment : Fragment() {
         binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarkota_logo)
         binding.iconAntarKota.root.setOnClickListener {
             val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(AntarKotaFragment(), "AntarKota")
+            mainActivity?.navigateToFragment(PemesananTiketAntarKota(), "AntarKota")
         }
 
         binding.iconLokal.textIconLabel.text = "Lokal"
         binding.iconLokal.imageIcon.setImageResource(R.drawable.lokal_logo)
         binding.iconLokal.root.setOnClickListener {
-            Toast.makeText(requireContext(), "Lokal diklik", Toast.LENGTH_SHORT).show()
+
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketAntarKota(), "AntarKota")
         }
 
         binding.iconKomuter.textIconLabel.text = "Komuter"

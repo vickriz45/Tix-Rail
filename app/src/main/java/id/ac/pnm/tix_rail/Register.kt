@@ -36,7 +36,6 @@ class Register : AppCompatActivity() {
     }
 
     private fun performRegistration() {
-        // Mengambil teks dari input field
         val name = etName.text.toString().trim()
         val phone = etPhone.text.toString().trim()
         val email = etEmail.text.toString().trim()
@@ -68,7 +67,8 @@ class Register : AppCompatActivity() {
 
         Toast.makeText(this, "Pendaftaran berhasil untuk $email!", Toast.LENGTH_LONG).show()
 
-        val intent = Intent(this, Login::class.java)
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("EXTRA_USERNAME", name)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }

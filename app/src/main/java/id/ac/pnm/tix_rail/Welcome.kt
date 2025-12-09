@@ -18,20 +18,16 @@ class Welcome : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Inisialisasi Views
         val btnMasuk: Button = findViewById(R.id.btn_masuk)
         val btnDaftar: Button = findViewById(R.id.btn_daftar)
 
-        // Menetapkan Listener untuk Tombol Masuk
         btnMasuk.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
         }
 
-        // Menetapkan Listener untuk Tombol Daftar
         btnDaftar.setOnClickListener {
-            // Membuat Intent untuk pindah ke RegisterActivity
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
             finish()
