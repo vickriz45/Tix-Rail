@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import id.ac.pnm.tix_rail.databinding.FragmentPemesananTiketAntarKotaBinding
 
-class PemesananTiketAntarKota : Fragment() {
+class PemesananTiketLokal : Fragment() {
 
     private var _binding: FragmentPemesananTiketAntarKotaBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +36,7 @@ class PemesananTiketAntarKota : Fragment() {
             val tujuan = binding.textStasiunTujuan.text.toString().trim()
 
             if (asal.isNotEmpty() && tujuan.isNotEmpty()) {
-                val jadwalFragment = JadwalAntarkotaFragment.newInstance(asal, tujuan)
+                val jadwalFragment = JadwalLokalFragment.newInstance(asal, tujuan)
                 val mainActivity = activity as? MainActivity
                 mainActivity?.navigateToFragment(jadwalFragment, "Cari Jadwal")
             } else {

@@ -92,9 +92,8 @@ class HomeFragment : Fragment() {
         binding.iconLokal.textIconLabel.text = "Lokal"
         binding.iconLokal.imageIcon.setImageResource(R.drawable.lokal_logo)
         binding.iconLokal.root.setOnClickListener {
-
             val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(PemesananTiketAntarKota(), "AntarKota")
+            mainActivity?.navigateToFragment(PemesananTiketLokal(), "Lokal")
         }
 
         binding.iconKomuter.textIconLabel.text = "Komuter"

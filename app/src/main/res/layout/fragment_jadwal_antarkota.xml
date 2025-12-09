@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    tools:context=".JadwalKeretaFragment">
+    tools:context=".JadwalLokalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header_search"
@@ -26,7 +26,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/white" />
 
-        <!-- Rute Asal/Tujuan -->
         <TextView
             android:id="@+id/text_rute_placeholder"
             android:layout_width="wrap_content"
@@ -40,7 +39,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/icon_back" />
 
-        <!-- Tanggal Keberangkatan (Placeholder) -->
         <TextView
             android:id="@+id/text_tanggal_placeholder"
             android:layout_width="wrap_content"
@@ -53,7 +51,6 @@
             app:layout_constraintStart_toStartOf="@+id/text_rute_placeholder"
             app:layout_constraintTop_toBottomOf="@id/text_rute_placeholder" />
 
-        <!-- Filter Tanggal Horizontal -->
         <HorizontalScrollView
             android:id="@+id/scroll_tanggal"
             android:layout_width="match_parent"
@@ -68,13 +65,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <!-- Tombol tanggal dimuat di Kotlin -->
             </LinearLayout>
         </HorizontalScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- 🔥 RECYCLERVIEW UTAMA: Harusnya muncul di bawah layout_header_search 🔥 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_jadwal"
         android:layout_width="match_parent"

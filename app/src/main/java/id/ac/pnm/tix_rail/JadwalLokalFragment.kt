@@ -10,24 +10,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.pnm.tix_rail.databinding.FragmentJadwalKeretaBinding
+import id.ac.pnm.tix_rail.databinding.FragmentJadwalAntarkotaBinding
 
-data class JadwalItem(
-    val namaKereta: String,
-    val kodePemesanan: String,
-    val hargaMulai: String,
-    val waktuBerangkat: String,
-    val waktuTiba: String,
-    val durasi: String,
-    val stasiunAsal: String,
-    val stasiunTujuan: String,
-    val tanggalBerangkat: String,
-    val tanggalTiba: String
-)
+class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
 
-class JadwalKeretaFragment : Fragment(), JadwalAdapter.OnItemClickListener {
-
-    private var _binding: FragmentJadwalKeretaBinding? = null
+    private var _binding: FragmentJadwalAntarkotaBinding? = null
     private val binding get() = _binding!!
     private var stasiunAsal: String? = null
     private var stasiunTujuan: String? = null
@@ -39,8 +26,8 @@ class JadwalKeretaFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         private const val ARG_ASAL = "stasiun_asal"
         private const val ARG_TUJUAN = "stasiun_tujuan"
 
-        fun newInstance(asal: String, tujuan: String): JadwalKeretaFragment {
-            val fragment = JadwalKeretaFragment()
+        fun newInstance(asal: String, tujuan: String): JadwalLokalFragment {
+            val fragment = JadwalLokalFragment()
             val args = Bundle()
             args.putString(ARG_ASAL, asal)
             args.putString(ARG_TUJUAN, tujuan)
@@ -61,7 +48,7 @@ class JadwalKeretaFragment : Fragment(), JadwalAdapter.OnItemClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentJadwalKeretaBinding.inflate(inflater, container, false)
+        _binding = FragmentJadwalAntarkotaBinding.inflate(inflater, container, false)
 
         setupToolbar()
         displayRouteHeader()
@@ -145,17 +132,6 @@ class JadwalKeretaFragment : Fragment(), JadwalAdapter.OnItemClickListener {
                     "18:00",
                     "23:00",
                     "05j 00m",
-                    asalSingkat,
-                    tujuanSingkat,
-                    "Sen, 9 Des",
-                    "Sen, 9 Des"
-                ),
-                JadwalItem("Laksana Cemara",
-                    "967",
-                    "310000",
-                    "10:30",
-                    "14:05",
-                    "03j 35m",
                     asalSingkat,
                     tujuanSingkat,
                     "Sen, 9 Des",
