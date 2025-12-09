@@ -8,16 +8,22 @@ import id.ac.pnm.tix_rail.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        username = intent.getStringExtra("EXTRA_USERNAME")
+        if (username.isNullOrEmpty()) {
+            username = "(NAMA PENGGUNA)"
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         configureBottomNav()
 
         if (savedInstanceState == null) {
-            setCurrentFragment(HomeFragment())
+            val homeFragment = HomeFragment.newInstance(username!!)
+            setCurrentFragment(homeFragment)
             binding.bottomNavigationBar.selectedItemId = R.id.menu_beranda
         }
     }
@@ -30,7 +36,11 @@ class MainActivity : AppCompatActivity() {
     private fun configureBottomNav() {
         binding.bottomNavigationBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.menu_beranda -> setCurrentFragment(HomeFragment())
+                R.id.menu_beranda -> {
+                    val usernameToSend = username ?: "Pengguna"
+                    val homeFragment = HomeFragment.newInstance(usernameToSend)
+                    setCurrentFragment(homeFragment)
+                }
                 R.id.menu_tiket_saya -> setCurrentFragment(TiketSayaFragment())
                 R.id.menu_promo -> setCurrentFragment(PromoFragment())
                 R.id.menu_profil -> setCurrentFragment(ProfileFragment())

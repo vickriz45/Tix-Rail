@@ -12,8 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class Login : AppCompatActivity() {
 
-    // Deklarasikan variabel untuk View
-    private lateinit var etEmail: EditText
+    private lateinit var etUsername: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
 
@@ -27,29 +26,23 @@ class Login : AppCompatActivity() {
             insets
         }
 
-        // Inisialisasi Views (Menghubungkan kode dengan ID di XML)
-        etEmail = findViewById(R.id.et_email)
+        etUsername = findViewById(R.id.et_username)
         etPassword = findViewById(R.id.et_password)
         btnLogin = findViewById(R.id.btn_login)
 
-        // Menetapkan Listener untuk Tombol Masuk
         btnLogin.setOnClickListener {
             performLogin()
         }
+
     }
 
-    /**
-     * Fungsi untuk menangani proses validasi dan simulasi login.
-     */
     private fun performLogin() {
-        // Mengambil teks dari input field
-        val email = etEmail.text.toString().trim()
+        val username = etUsername.text.toString().trim()
         val password = etPassword.text.toString().trim()
 
-        // --- Validasi Input Sederhana ---
-        if (email.isEmpty()) {
-            etEmail.error = "Email harus diisi"
-            etEmail.requestFocus()
+        if (username.isEmpty()) {
+            etUsername.error = "Username harus diisi"
+            etUsername.requestFocus()
             return
         }
 
@@ -59,18 +52,9 @@ class Login : AppCompatActivity() {
             return
         }
 
-        // Asumsi: Jika lolos validasi input, lanjutkan ke proses API atau simulasi.
-
-        // --- Simulasi Proses Login Sukses ---
-        // Ganti bagian ini dengan panggilan API/otentikasi yang sebenarnya.
-        Toast.makeText(this, "Login berhasil! Memproses data...", Toast.LENGTH_SHORT).show()
-
-        // Pindah ke Home Activity setelah Login
-        val intent = Intent(this, Login::class.java) // Ganti HomeActivity dengan Activity tujuan Anda
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("EXTRA_USERNAME", username)
         startActivity(intent)
-        finish() // Tutup LoginActivity agar pengguna tidak bisa kembali
-
-        // Jika login gagal (misalnya karena API error), Anda bisa menggunakan:
-        // Toast.makeText(this, "Kredensial tidak valid.", Toast.LENGTH_LONG).show()
+        finish()
     }
 }

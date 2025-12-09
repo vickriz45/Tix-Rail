@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,12 +14,32 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private var username: String? = null
+
+    companion object {
+        private const val  ARG_USERNAME = "EXTRA_USERNAME"
+        fun newInstance(username: String): HomeFragment {
+            val fragment = HomeFragment()
+            val args = Bundle()
+            args.putString(ARG_USERNAME, username)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            username = it.getString(ARG_USERNAME)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    )
+    : View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         configureHeader()
@@ -35,7 +56,8 @@ class HomeFragment : Fragment() {
         _binding = null
     }
     private fun configureHeader() {
-        binding.textUserName.text = "USERNAME"
+        binding.textUserName.text = username ?: "(NAMA PENGGUNA)"
+        binding.textGreeting.text = "Selamat Datang"
     }
 
     private fun configureBannerSlider() {
