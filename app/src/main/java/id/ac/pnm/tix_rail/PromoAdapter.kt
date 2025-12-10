@@ -1,4 +1,4 @@
-package id.ac.pnm.tix_rail // Ganti dengan nama paket Anda
+package id.ac.pnm.tix_rail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,13 +8,14 @@ import id.ac.pnm.tix_rail.databinding.ItemPromoBinding
 class PromoAdapter(private val promoItems: List<PromoItem>) :
     RecyclerView.Adapter<PromoAdapter.PromoViewHolder>() {
 
-    data class PromoItem(val imageResId: Int)
+    data class PromoItem(val imageResId: Int, val description: String)
 
     inner class PromoViewHolder(private val binding: ItemPromoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: PromoItem) {
             binding.imagePromo.setImageResource(item.imageResId)
+            binding.textPromoDescription.text = item.description
         }
     }
 

@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_blue">#005792</color>
     <color name="placeholder_gray">#D0D0D0</color>
+    <color name="bg_circle">#34A1DB</color>
 </resources>

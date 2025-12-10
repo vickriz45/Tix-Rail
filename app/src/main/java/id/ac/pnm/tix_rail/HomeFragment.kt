@@ -8,8 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnm.tix_rail.databinding.FragmentHomeBinding
-import id.ac.pnm.tix_rail.BannerAdapter
-import id.ac.pnm.tix_rail.PromoAdapter
 
 class HomeFragment : Fragment() {
 
@@ -39,11 +37,12 @@ class HomeFragment : Fragment() {
     private fun configureHeader() {
         binding.textUserName.text = "USERNAME"
     }
+
     private fun configureBannerSlider() {
         val banners = listOf(
-            BannerAdapter.BannerItem(R.drawable.ic_banner_1), // Ganti dengan drawable Anda
             BannerAdapter.BannerItem(R.drawable.ic_banner_1),
-            BannerAdapter.BannerItem(R.drawable.ic_banner_1)
+            BannerAdapter.BannerItem(R.drawable.ic_banner_2),
+            BannerAdapter.BannerItem(R.drawable.ic_banner_3)
         )
         val adapter = BannerAdapter(banners)
         binding.bannerViewPager.adapter = adapter
@@ -51,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun configureTixpay() {
-        binding.textSaldoValue.text = "Rp 1.000.000"
+        binding.textSaldoValue.text = "Rp 15.000"
 
         binding.actionTopup.setOnClickListener {
             Toast.makeText(requireContext(), "Menuju halaman Top Up", Toast.LENGTH_SHORT).show()
@@ -63,32 +62,32 @@ class HomeFragment : Fragment() {
 
     private fun configureTransportIcons() {
         binding.iconAntarKota.textIconLabel.text = "Antar Kota"
-        binding.iconAntarKota.imageIcon.setImageResource(R.drawable.ic_kereta)
+        binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarkota_logo)
         binding.iconAntarKota.root.setOnClickListener {
             val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(AntarKotaFragment(), "AntarKotaSearch")
+            mainActivity?.navigateToFragment(AntarKotaFragment(), "AntarKota")
         }
 
         binding.iconLokal.textIconLabel.text = "Lokal"
-        binding.iconLokal.imageIcon.setImageResource(R.drawable.ic_kereta)
+        binding.iconLokal.imageIcon.setImageResource(R.drawable.lokal_logo)
         binding.iconLokal.root.setOnClickListener {
             Toast.makeText(requireContext(), "Lokal diklik", Toast.LENGTH_SHORT).show()
         }
 
         binding.iconKomuter.textIconLabel.text = "Komuter"
-        binding.iconKomuter.imageIcon.setImageResource(R.drawable.ic_kereta)
+        binding.iconKomuter.imageIcon.setImageResource(R.drawable.komuter_logo)
         binding.iconKomuter.root.setOnClickListener {
-            Toast.makeText(requireContext(), "Komuter diklik", Toast.LENGTH_SHORT).show()
+            //code ke activity
         }
 
         binding.iconMrt.textIconLabel.text = "MRT"
-        binding.iconMrt.imageIcon.setImageResource(R.drawable.ic_kereta)
+        binding.iconMrt.imageIcon.setImageResource(R.drawable.mrt_logo)
         binding.iconMrt.root.setOnClickListener {
             Toast.makeText(requireContext(), "MRT diklik", Toast.LENGTH_SHORT).show()
         }
 
         binding.iconWhoosh.textIconLabel.text = "Whoosh"
-        binding.iconWhoosh.imageIcon.setImageResource(R.drawable.ic_kereta)
+        binding.iconWhoosh.imageIcon.setImageResource(R.drawable.whoosh_logo)
         binding.iconWhoosh.root.setOnClickListener {
             Toast.makeText(requireContext(), "Whoosh diklik", Toast.LENGTH_SHORT).show()
         }
@@ -96,9 +95,15 @@ class HomeFragment : Fragment() {
 
     private fun configurePromoSection() {
         val promos = listOf(
-            PromoAdapter.PromoItem(R.drawable.ic_banner_1),
-            PromoAdapter.PromoItem(R.drawable.ic_banner_1),
-            PromoAdapter.PromoItem(R.drawable.ic_banner_1)
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_1,
+                "Diskon Spesial Akhir Tahun! Berlaku untuk semua rute favorit."),
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_2,
+                "Spesial Diskon 12.12: Kereta Istimewa dan Lawang Sewu !!"),
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_3,
+                "Waktunya Eksplorasi Dunia Kereta Api! KAI EXPO 2024 Hadir di Kota Anda !")
         )
 
         val promoAdapter = PromoAdapter(promos)
