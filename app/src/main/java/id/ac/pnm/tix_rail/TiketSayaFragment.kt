@@ -17,7 +17,7 @@ class TiketSayaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btnBack = view.findViewById<android.widget.ImageView>(R.id.btn_back)
         btnBack.setOnClickListener {
-            activity?.finish()
+            activity?.supportFragmentManager?.popBackStack()
         }
 
         val trainName = "Gatotkaca Express ( 908 )"
