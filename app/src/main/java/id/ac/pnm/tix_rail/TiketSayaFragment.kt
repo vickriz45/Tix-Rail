@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class TiketSayaFragment : Fragment() {
@@ -22,7 +21,7 @@ class TiketSayaFragment : Fragment() {
             activity?.finish()
         }
 
-        val trainName = "Argo Muria ( Eksekutif )"
+        val trainName = "Gatotkaca Express ( 908 )"
         val bookingCode = "A1B2C3D4"
         val departureTime = "08:00"
         val departureDate = "Sen, 9 Juni 2025"
@@ -37,10 +36,8 @@ class TiketSayaFragment : Fragment() {
         view.findViewById<android.widget.TextView>(R.id.tv_arrival_date).text = arrivalDate
 
         val passengerName = "Alvin Hutapea"
-        val classSeat = "EKONOMI (PREMIUM) / K.09"
 
         view.findViewById<android.widget.TextView>(R.id.tv_passenger_name).text = passengerName
-        view.findViewById<android.widget.TextView>(R.id.tv_class_seat).text = classSeat
     }
 
     companion object {

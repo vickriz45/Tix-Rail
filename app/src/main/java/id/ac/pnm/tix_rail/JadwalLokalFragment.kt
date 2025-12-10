@@ -61,7 +61,18 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
     }
 
     override fun onDetailClick(item: JadwalItem) {
-        Toast.makeText(requireContext(), "Membuka Detail Kereta: ${item.namaKereta}", Toast.LENGTH_SHORT).show()
+        val fragment = PemesananFragment().apply {
+            arguments = Bundle().apply {
+                putString("namaKereta", item.namaKereta)
+                putString("kode", item.kodePemesanan)
+                putString("harga", item.hargaMulai)
+            }
+        }
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun setupToolbar() {
@@ -84,7 +95,6 @@ class JadwalLokalFragment : Fragment(), JadwalAdapter.OnItemClickListener {
 
             dateButton.setOnClickListener {
                 loadJadwalForDate(date)
-                Toast.makeText(requireContext(), "Jadwal diperbarui untuk: $date", Toast.LENGTH_SHORT).show()
             }
             binding.layoutTanggalButtons.addView(dateButton)
         }

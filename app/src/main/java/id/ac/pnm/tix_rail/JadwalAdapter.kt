@@ -33,6 +33,10 @@ class JadwalAdapter(private val jadwalList: List<JadwalItem>) :
             binding.textTanggalBerangkat.text = item.tanggalBerangkat
             binding.textWaktuTiba.text = item.waktuTiba
             binding.textTanggalTiba.text = item.tanggalTiba
+
+            binding.root.setOnClickListener {
+                listener?.onDetailClick(item)
+            }
         }
     }
 
