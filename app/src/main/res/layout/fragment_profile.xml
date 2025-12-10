@@ -8,6 +8,7 @@
     android:background="@android:color/white"
     tools:context=".ProfileFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
