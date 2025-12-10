@@ -42,9 +42,9 @@ class PemesananFragment : Fragment() {
 
             Toast.makeText(requireContext(), "Pemesanan Berhasil!", Toast.LENGTH_SHORT).show()
 
-            // ❗ KEMBALI KE HOME
-            parentFragmentManager.popBackStack() // tutup fragment pemesanan
-            parentFragmentManager.popBackStack() // kembali ke home
+            parentFragmentManager.popBackStack()
+            parentFragmentManager.popBackStack()
+            parentFragmentManager.popBackStack()
         }
     }
 }
