@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnm.tix_rail.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -16,7 +16,7 @@ class HomeFragment : Fragment() {
     private var username: String? = null
 
     companion object {
-        private const val ARG_USERNAME = "EXTRA_USERNAME"
+        private const val  ARG_USERNAME = "EXTRA_USERNAME"
         fun newInstance(username: String): HomeFragment {
             val fragment = HomeFragment()
             val args = Bundle()
@@ -37,83 +37,84 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    )
+            : View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        configureHeader()
+        configureBannerSlider()
+        configureTixpay()
+        configureTransportIcons()
+        configurePromoSection()
+
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        try {
-            configureHeader()
-            configureBannerSlider()
-            configureTixpay()
-            configureTransportIcons()
-            configurePromoSection()
-        } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
     private fun configureHeader() {
-        try {
-            binding.textUserName.text = username ?: "(NAMA PENGGUNA)"
-            binding.textGreeting.text = "Selamat Datang"
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        binding.textUserName.text = username ?: "(NAMA PENGGUNA)"
+        binding.textGreeting.text = "Selamat Datang"
     }
 
     private fun configureBannerSlider() {
-        try {
-            val banners = listOf(
-                BannerAdapter.BannerItem(R.drawable.ic_banner_1),
-                BannerAdapter.BannerItem(R.drawable.ic_banner_2),
-                BannerAdapter.BannerItem(R.drawable.ic_banner_3)
-            )
-            val adapter = BannerAdapter(banners)
-            binding.bannerViewPager.adapter = adapter
-            binding.indicator.setViewPager(binding.bannerViewPager)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        val banners = listOf(
+            BannerAdapter.BannerItem(R.drawable.ic_banner_1),
+            BannerAdapter.BannerItem(R.drawable.ic_banner_2),
+            BannerAdapter.BannerItem(R.drawable.ic_banner_3)
+        )
+        val adapter = BannerAdapter(banners)
+        binding.bannerViewPager.adapter = adapter
+        binding.indicator.setViewPager(binding.bannerViewPager)
     }
 
     private fun configureTixpay() {
-        try {
-            binding.actionTopup.setOnClickListener {
-                try {
-                    findNavController().navigate(R.id.topUpFragment)
-                } catch (e: Exception) {
-                    try {
-                        findNavController().navigate(R.id.action_homeFragment_to_topUpFragment)
-                    } catch (e2: Exception) {
-                        Toast.makeText(requireContext(), "Gagal membuka halaman top up", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
+        binding.textSaldoValue.text = "Rp 15.000"
 
-            binding.actionHistory.setOnClickListener {
-                Toast.makeText(requireContext(), "Menuju halaman Riwayat Transaksi", Toast.LENGTH_SHORT).show()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+        binding.actionTopup.setOnClickListener {
+            Toast.makeText(requireContext(), "Menuju halaman Top Up", Toast.LENGTH_SHORT).show()
+        }
+        binding.actionHistory.setOnClickListener {
+            Toast.makeText(requireContext(), "Menuju halaman Riwayat Transaksi", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun configureTransportIcons() {
-        try {
-            binding.iconKereta.root.setOnClickListener {
-                Toast.makeText(requireContext(), "Navigasi ke Jadwal Kereta", Toast.LENGTH_SHORT).show()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+        binding.iconAntarKota.textIconLabel.text = "Antar Kota"
+        binding.iconAntarKota.imageIcon.setImageResource(R.drawable.antarkota_logo)
+        binding.iconAntarKota.root.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketAntarKotaFragment(), "AntarKota")
+        }
+
+        binding.iconLokal.textIconLabel.text = "Lokal"
+        binding.iconLokal.imageIcon.setImageResource(R.drawable.lokal_logo)
+        binding.iconLokal.root.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketLokalFragment(), "Lokal")
+        }
+
+        binding.iconKomuter.textIconLabel.text = "Komuter"
+        binding.iconKomuter.imageIcon.setImageResource(R.drawable.komuter_logo)
+        binding.iconKomuter.root.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketKomuterFragment(), "Lokal")
+        }
+
+        binding.iconMrt.textIconLabel.text = "MRT"
+        binding.iconMrt.imageIcon.setImageResource(R.drawable.mrt_logo)
+        binding.iconMrt.root.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketMRTFragment(), "Lokal")
+        }
+
+        binding.iconWhoosh.textIconLabel.text = "Whoosh"
+        binding.iconWhoosh.imageIcon.setImageResource(R.drawable.whoosh_logo)
+        binding.iconWhoosh.root.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PemesananTiketWhooshFragment(), "Komuter")
         }
     }
 
@@ -142,8 +143,7 @@ class HomeFragment : Fragment() {
         binding.recyclerPromo.adapter = promoAdapter
 
         binding.buttonLihatSemua.setOnClickListener {
-            val mainActivity = activity as? MainActivity
-            mainActivity?.navigateToFragment(PromoFragment(), "All Promo")
+            Toast.makeText(requireContext(), "Menuju halaman semua Promo", Toast.LENGTH_SHORT).show()
         }
     }
 }

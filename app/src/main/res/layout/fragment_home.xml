@@ -195,14 +195,13 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <include layout="@layout/item_transport_icon"
-                android:id="@+id/iconKereta"
+                android:id="@+id/icon_antar_kota"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/icon_lokal"/>
-            <!-- AKHIR PERBAIKAN -->
 
             <include layout="@layout/item_transport_icon"
                 android:id="@+id/icon_lokal"
@@ -210,7 +209,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iconKereta"
+                app:layout_constraintStart_toEndOf="@+id/icon_antar_kota"
                 app:layout_constraintEnd_toStartOf="@+id/icon_komuter"/>
 
             <include layout="@layout/item_transport_icon"
@@ -243,7 +242,7 @@
             <androidx.constraintlayout.widget.Group
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="iconKereta,icon_lokal,icon_komuter,icon_mrt,icon_whoosh"
+                app:constraint_referenced_ids="icon_antar_kota,icon_lokal,icon_komuter,icon_mrt,icon_whoosh"
                 app:layout_constraintHorizontal_chainStyle="spread"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -277,7 +276,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_promo"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="230dp"
             android:layout_marginTop="8dp"
             android:clipToPadding="false"
             android:paddingStart="16dp"
