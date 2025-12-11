@@ -277,7 +277,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_promo"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="250dp"
             android:layout_marginTop="8dp"
             android:clipToPadding="false"
             android:paddingStart="16dp"
