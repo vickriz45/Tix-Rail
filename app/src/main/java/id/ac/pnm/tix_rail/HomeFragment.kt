@@ -118,12 +118,32 @@ class HomeFragment : Fragment() {
     }
 
     private fun configurePromoSection() {
-        try {
-            binding.buttonLihatSemua.setOnClickListener {
-                Toast.makeText(requireContext(), "Lihat Semua Promo", Toast.LENGTH_SHORT).show()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+        val promos = listOf(
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_1,
+                "Diskon Spesial Akhir Tahun! Berlaku untuk semua rute favorit."),
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_2,
+                "Spesial Diskon 12.12: Kereta Istimewa dan Lawang Sewu !!"),
+            PromoAdapter.PromoItem(
+                R.drawable.ic_promo_3,
+                "Waktunya Eksplorasi Dunia Kereta Api! KAI EXPO 2024 Hadir di Kota Anda !")
+        )
+
+        val promoAdapter = PromoAdapter(promos)
+
+        binding.recyclerPromo.layoutManager =
+            LinearLayoutManager(
+                context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+
+        binding.recyclerPromo.adapter = promoAdapter
+
+        binding.buttonLihatSemua.setOnClickListener {
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PromoFragment(), "All Promo")
         }
     }
 }
