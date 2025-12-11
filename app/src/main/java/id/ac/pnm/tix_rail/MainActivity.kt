@@ -27,12 +27,14 @@ class MainActivity : AppCompatActivity() {
             binding.bottomNavigationBar.selectedItemId = R.id.menu_beranda
         }
     }
+
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
             commit()
         }
     }
+
     private fun configureBottomNav() {
         binding.bottomNavigationBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
     fun navigateToFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment, tag)
