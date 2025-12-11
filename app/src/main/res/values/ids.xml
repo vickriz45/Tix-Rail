@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ID untuk navigation actions -->
+    <item name="action_homeFragment_to_topUpFragment" type="id" />
+    <item name="action_topUpFragment_to_homeFragment" type="id" />
+</resources>
