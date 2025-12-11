@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header: Isi Saldo (Top Up) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Isi Saldo (Top Up)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Saldo saat ini -->
+        <TextView
+            android:id="@+id/tv_saldo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo saat ini Rp 203,00"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Garis pembatas tipis -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Section 1: Masukkan Nominal Top Up -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Masukkan Nominal Top Up"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Input Nominal -->
+        <EditText
+            android:id="@+id/et_nominal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Masukkan Nominal..."
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="@drawable/bg_edittext_default"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <!-- Rp 50.000 -->
+                <Button
+                    android:id="@+id/btn_50k"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Rp 50.000"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/bg_button_outline"/>
+
+                <Button
+                    android:id="@+id/btn_100k"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Rp 100.000"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/bg_button_outline"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_200k"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Rp 200.000"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/bg_button_outline"/>
+
+                <!-- Rp 500.000 -->
+                <Button
+                    android:id="@+id/btn_500k"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Rp 500.000"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/bg_button_outline"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Konfirmasi Detail Akun"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/et_nomor_akun"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Contoh: 081903XXXXXX"
+            android:inputType="phone"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="@drawable/bg_edittext_default"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="24dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Metode Pembayaran"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Qris -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Qris"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/rb_qris"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transfer Bank"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(OVO, GoPay, Dana, LinkAja)"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"/>
+
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/rb_transfer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Catatan Penting -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catatan Penting:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_catatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cek kembali Nominal, Nomor konfirmasi akun, dan juga metode pembayaran anda. Jangan sampai salah memasukkan nominal ataupun nomor akun."
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btn_lanjut"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Lanjutkan Pembayaran"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="#007bff"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btn_batal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Batal"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#007bff"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
