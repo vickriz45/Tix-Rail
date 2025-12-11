@@ -2,4 +2,24 @@
     <string name="app_name">Tix_Rail</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="topup_title">Isi Saldo (Top Up)</string>
+    <string name="current_balance_format">Saldo saat ini Rp %s</string>
+    <string name="enter_nominal_hint">Masukkan Nominal...</string>
+    <string name="account_number_hint">Contoh: 081903XXXXXX</string>
+    <string name="qris">Qris</string>
+    <string name="bank_transfer">Transfer Bank</string>
+    <string name="payment_method_title">3. Metode Pembayaran</string>
+    <string name="continue_payment">Lanjutkan Pembayaran</string>
+    <string name="cancel">Batal</string>
+    <string name="error_nominal_empty">Masukkan Nominal...</string>
+    <string name="error_nominal_invalid">Nominal tidak valid</string>
+    <string name="error_account_number_empty">Masukkan nomor akun</string>
+    <string name="error_payment_method_empty">Pilih metode pembayaran</string>
+    <string name="confirmation_title">Konfirmasi Pembayaran</string>
+    <string name="confirmation_message">Nominal: Rp %1$s\nNomor Akun: %2$s\nMetode: %3$s\n\nLanjutkan pembayaran?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="redirecting_to_payment_format">Mengarahkan ke pembayaran %s...</string>
+    <string name="payment_successful_format">Pembayaran berhasil! Saldo bertambah Rp %s</string>
+
 </resources>
