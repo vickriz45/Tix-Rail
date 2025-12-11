@@ -143,7 +143,8 @@ class HomeFragment : Fragment() {
         binding.recyclerPromo.adapter = promoAdapter
 
         binding.buttonLihatSemua.setOnClickListener {
-            Toast.makeText(requireContext(), "Menuju halaman semua Promo", Toast.LENGTH_SHORT).show()
+            val mainActivity = activity as? MainActivity
+            mainActivity?.navigateToFragment(PromoFragment(), "All Promo")
         }
     }
 }
